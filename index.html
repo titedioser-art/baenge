@@ -542,11 +542,14 @@ footer {
         </div>
       </div>
       <div class="scroll-hint" data-i18n="scroll" style="margin-top:2rem;">스크롤하여 더 보기</div>
-      <a href="https://blog.naver.com/bbh4313" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;margin-top:1.2rem;padding:0.55rem 1.2rem;border:1px solid rgba(0,229,200,0.4);border-radius:50px;font-size:0.75rem;letter-spacing:0.1em;color:var(--cyan);text-decoration:none;transition:all 0.2s;opacity:0;animation:fadeUp 0.7s ease forwards 0.9s;" onmouseover="this.style.background='rgba(0,229,200,0.08)'" onmouseout="this.style.background='transparent'">
-        <span style="font-size:0.8rem;">📝</span> <span data-i18n="blog_link">블로그 바로가기</span> <span style="font-size:0.85rem;">→</span>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;gap:0.8rem;">
+      <div style="flex-shrink:0;opacity:0;animation:fadeUp 0.8s ease forwards 0.6s;transform:perspective(1200px) rotateY(-3deg);">
+</div>
+      <a href="https://blog.naver.com/bbh4313" target="_blank" style="display:inline-flex;align-items:center;gap:0.6rem;padding:0.8rem 1.8rem;border:1px solid rgba(0,229,200,0.5);border-radius:50px;font-size:0.95rem;font-weight:500;letter-spacing:0.08em;color:var(--cyan);text-decoration:none;transition:all 0.2s;opacity:0;animation:fadeUp 0.7s ease forwards 0.9s;width:100%;justify-content:center;" onmouseover="this.style.background='rgba(0,229,200,0.1)'" onmouseout="this.style.background='transparent'">
+        <span style="font-size:1rem;">📝</span> <span data-i18n="blog_link">블로그 둘러보기</span> <span style="font-size:1rem;">→</span>
       </a>
     </div>
-    <div></div>
   </div>
 </section>
 
@@ -856,7 +859,7 @@ footer {
 const i18n = {
   ko: {
     badge:"협업 환영", eyebrow:"글로벌 여행 · 트렌드 · 라이프스타일 크리에이터",
-    hero_sub:"<span style='font-size:1.4em;font-weight:700;color:var(--cyan)'>상위 0.07%</span> — 네이버 코리아.<br><br>네이버 최고 등급 <strong>최적블 4+</strong>를 22년간 안정적으로 유지하고 있습니다.<br><strong>매일 3개 이상의 포스팅</strong>으로 수천 개의 콘텐츠를 축적해왔습니다.<br>자극적인 트렌드에 의존하지 않고, 실제 경험과 데이터로 <strong>꾸준히 높은 방문자 수</strong>를 유지합니다.",
+    hero_sub:"<span style='font-size:1.4em;font-weight:700;color:var(--cyan)'>상위 0.07%</span> 네이버 블로거.<br><br>네이버 최고 등급 <strong>최적블 4+</strong>를 22년간 안정적으로 유지하고 있습니다.<br><strong>매일 3개 이상의 포스팅</strong>으로 수천 개의 콘텐츠를 축적해왔습니다.<br>자극적인 트렌드에 의존하지 않고, 실제 경험과 데이터로 <strong>꾸준히 높은 방문자 수</strong>를 유지합니다.",
     scroll:"스크롤하여 더 보기", stat_top:"상위", blog_link:"블로그 둘러보기", stat_rank_sub:"블로그 랭킹", stat_monthly:"월 방문자 수", stat_monthly_sub:"월간 독자", stat_visitors_sub:"누적 방문자", stat_years_sub:"콘텐츠 경력", stat_rank:"블덱스 상위 0.07%", stat_visitors:"누적 방문자", stat_years:"블로그 운영 연수",
     impact_label:"AUTHORITY EARNED, NOT CLAIMED.",
     impact_big:"2003년부터 지금까지.<br><span class='cy'>2,402,495명</span>이<br>선택한 <span class='go'>신뢰.</span>",
