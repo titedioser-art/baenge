@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -525,13 +525,13 @@ footer {
   text-underline-offset: 3px; text-decoration-style: dotted;
 }
 </style>
-<link rel="canonical" href="https://baenge.com/">
+<link rel="canonical" href="https://baenge.com/ko/">
 <link rel="alternate" hreflang="ko" href="https://baenge.com/ko/">
 <link rel="alternate" hreflang="en" href="https://baenge.com/en/">
 <link rel="alternate" hreflang="zh" href="https://baenge.com/zh/">
 <link rel="alternate" hreflang="x-default" href="https://baenge.com/">
 </head>
-<body class="lang-en">
+<body class="lang-ko">
 
 <div class="lang-bar">
   <a class="lang-btn" href="/ko/" data-lang="ko">KOR</a>
@@ -1133,7 +1133,7 @@ function setLang(lang) {
   document.body.className = "lang-" + lang;
 }
 
-const currentLang = { value: "en" };
+const currentLang = { value: "ko" };
 function openBlogModal() { document.getElementById('blogModal').classList.add('active'); }
 function openProof() {
   document.getElementById('proofModal').classList.add('active');
@@ -1169,7 +1169,7 @@ const rankObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 document.querySelectorAll(".rank-up:not(.pop)").forEach(el => rankObserver.observe(el));
 
-document.addEventListener("DOMContentLoaded", function() { setLang("en"); });
+document.addEventListener("DOMContentLoaded", function() { setLang("ko"); });
 
 function setLang2(lang) {
   currentLang.value = lang;
