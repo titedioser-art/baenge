@@ -40,6 +40,35 @@ body {
 .lang-ja * { font-family: 'Noto Sans JP', sans-serif; }
 .lang-ja .hero-name, .lang-ja .hero-name * { font-family: 'Cormorant Garamond', Georgia, serif !important; }
 
+
+/* ── BRAND MARQUEE ── */
+.brand-marquee {
+  position: relative; overflow: hidden; margin-bottom: 2rem;
+  padding: 1.1rem 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+.bm-track { display: flex; align-items: center; width: max-content; animation: bmScroll 38s linear infinite; }
+.brand-marquee:hover .bm-track { animation-play-state: paused; }
+.bm-track img {
+  height: 22px; width: auto; max-width: 86px; object-fit: contain;
+  margin: 0 2.4rem; flex: 0 0 auto;
+  opacity: 0.45; filter: grayscale(100%); transition: opacity 0.25s, filter 0.25s;
+}
+.bm-track img:hover { opacity: 1; filter: none; }
+/* 검정 원본 로고(올리브영 등)는 흰색으로 반전해야 보임 */
+.bm-track img.bm-invert { filter: brightness(0) invert(1); }
+.bm-track img.bm-invert:hover { filter: brightness(0) invert(1); opacity: 1; }
+@keyframes bmScroll { to { transform: translateX(-50%); } }
+@media (max-width: 760px) {
+  .bm-track img { height: 18px; max-width: 70px; margin: 0 1.5rem; }
+  .bm-track { animation-duration: 26s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bm-track { animation: none; }
+  .brand-marquee { overflow-x: auto; }
+}
+
 /* ── LANG BAR ── */
 .lang-bar {
   position: fixed; top: 1.2rem; right: 4vw; z-index: 999;
@@ -788,6 +817,10 @@ footer {
 <section class="collab-section">
   <div class="sec-label reveal" data-i18n="s4_label">협업 이력</div>
   <h2 class="sec-title reveal"><span data-i18n="s4_title">검증된 </span><span class="cy" data-i18n="s4_em">실적.</span></h2>
+  <div class="brand-marquee reveal" aria-hidden="true">
+    <div class="bm-track"></div>
+  </div>
+
   <div style="margin-bottom:2rem;background:rgba(0,229,200,0.04);border:1px solid rgba(0,229,200,0.15);border-radius:4px;padding:1.75rem 2rem;" class="reveal">
     <div style="font-size:0.6rem;letter-spacing:0.25em;color:var(--cyan);margin-bottom:0.75rem;">🏨 HOTEL COLLABORATION — MOST WELCOME</div>
     <div style="font-size:1.05rem;font-weight:700;margin-bottom:0.6rem;" data-i18n="hotel_title">여행 인플루언서와 네이버 블로거는 다릅니다.</div>
@@ -1275,6 +1308,26 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+// 협업 브랜드 로고 롤링 — 카드에 이미 있는 로고를 복제해 사용
+(function () {
+  var track = document.querySelector(".bm-track");
+  if (!track) return;
+  var logos = Array.prototype.slice.call(document.querySelectorAll(".collab-name img"));
+  if (!logos.length) { track.parentElement.style.display = "none"; return; }
+  function fill() {
+    logos.forEach(function (src) {
+      var img = document.createElement("img");
+      img.src = src.src;
+      img.alt = src.alt || "";
+      // 카드에서 반전 필터를 쓰는 로고는 마퀴에서도 반전해야 어두운 배경에서 보인다
+      if ((src.style.filter || "").indexOf("invert") !== -1) img.className = "bm-invert";
+      track.appendChild(img);
+    });
+  }
+  fill(); fill();
+})();
+
 const rankObserver = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) {
