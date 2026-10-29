@@ -69,6 +69,19 @@ body {
   .brand-marquee { overflow-x: auto; }
 }
 
+/* 스크롤에 따라 아주 옅게 번지는 배경 */
+#bgShift {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  transition: background-color 0.6s linear;
+}
+#bgShift::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(130% 85% at 50% 0%, var(--tint, rgba(0,229,200,0.05)), transparent 68%);
+  transition: background 0.6s linear;
+}
+body > section, body > footer, body > .lang-bar, body > .hero { position: relative; z-index: 1; }
+@media (prefers-reduced-motion: reduce) { #bgShift::before { transition: none; } }
+
 /* ── LANG BAR ── */
 .lang-bar {
   position: fixed; top: 1.2rem; right: 4vw; z-index: 999;
@@ -412,11 +425,6 @@ body {
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
   margin-top: 0.25rem; font-weight: 400;
 }
-/* 배경 질감 */
-body::after {
-  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 9998; opacity: 0.45;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
-}
 .collab-name img {
   width: auto !important; height: 20px; max-width: 74px;
   object-fit: contain; object-position: left center;
@@ -596,6 +604,7 @@ footer {
 <link rel="alternate" hreflang="x-default" href="https://baenge.com/">
 </head>
 <body class="lang-ko">
+<div id="bgShift"></div>
 
 <div class="lang-bar">
   <a class="lang-btn" href="/ko/" data-lang="ko">KOR</a>
@@ -1329,6 +1338,42 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.08 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+// 스크롤 위치에 따라 배경 색조를 아주 옅게 이동시킨다
+(function () {
+  var layer = document.getElementById("bgShift");
+  if (!layer) return;
+  var STOPS = [
+    [0,   [0, 229, 200], 0.055],   // 상단: 시안
+    [0.45,[201, 168, 76], 0.045],  // 중반: 골드
+    [1,   [0, 229, 200], 0.05]     // 하단: 다시 시안
+  ];
+  function mix(p) {
+    for (var i = 0; i < STOPS.length - 1; i++) {
+      var a = STOPS[i], b = STOPS[i + 1];
+      if (p <= b[0]) {
+        var f = (p - a[0]) / (b[0] - a[0] || 1);
+        var c = [0,1,2].map(function (k) { return Math.round(a[1][k] + (b[1][k] - a[1][k]) * f); });
+        var al = a[2] + (b[2] - a[2]) * f;
+        return "rgba(" + c.join(",") + "," + al.toFixed(3) + ")";
+      }
+    }
+    var last = STOPS[STOPS.length - 1];
+    return "rgba(" + last[1].join(",") + "," + last[2] + ")";
+  }
+  var ticking = false;
+  function update() {
+    var max = document.documentElement.scrollHeight - window.innerHeight;
+    var p = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
+    layer.style.setProperty("--tint", mix(p));
+    ticking = false;
+  }
+  window.addEventListener("scroll", function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  update();
+})();
+
 
 // 협업 브랜드 로고 롤링 — 카드에 이미 있는 로고를 복제해 사용
 (function () {
