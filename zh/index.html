@@ -72,12 +72,14 @@ body {
 /* 스크롤에 따라 아주 옅게 번지는 배경 */
 #bgShift {
   position: fixed; inset: 0; z-index: 0; pointer-events: none;
-  transition: background-color 0.6s linear;
+  transition: background-color 0.5s linear;
 }
 #bgShift::before {
   content: ""; position: absolute; inset: 0;
-  background: radial-gradient(130% 85% at 50% 0%, var(--tint, rgba(0,229,200,0.05)), transparent 68%);
-  transition: background 0.6s linear;
+  background:
+    radial-gradient(120% 70% at 50% -5%, var(--tint, rgba(0,229,200,0.2)), transparent 62%),
+    radial-gradient(110% 60% at 50% 105%, var(--tint, rgba(0,229,200,0.2)), transparent 60%);
+  transition: background 0.5s linear;
 }
 body > section, body > footer, body > .lang-bar, body > .hero { position: relative; z-index: 1; }
 @media (prefers-reduced-motion: reduce) { #bgShift::before { transition: none; } }
@@ -1339,33 +1341,40 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.08 });
 document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
 
-// 스크롤 위치에 따라 배경 색조를 아주 옅게 이동시킨다
+// 스크롤 위치에 따라 배경 색조를 이동시킨다
 (function () {
   var layer = document.getElementById("bgShift");
   if (!layer) return;
+  // [위치, 번지는 빛 RGB, 빛 농도, 바탕 RGB]
   var STOPS = [
-    [0,   [0, 229, 200], 0.055],   // 상단: 시안
-    [0.45,[201, 168, 76], 0.045],  // 중반: 골드
-    [1,   [0, 229, 200], 0.05]     // 하단: 다시 시안
+    [0,    [0, 229, 200], 0.20, [6, 16, 17]],
+    [0.33, [0, 132, 255], 0.18, [6, 11, 22]],
+    [0.66, [201, 168, 76], 0.17, [18, 14, 8]],
+    [1,    [0, 229, 200], 0.20, [6, 16, 17]]
   ];
-  function mix(p) {
+  function lerp(a, b, f) { return Math.round(a + (b - a) * f); }
+  function at(p) {
     for (var i = 0; i < STOPS.length - 1; i++) {
       var a = STOPS[i], b = STOPS[i + 1];
       if (p <= b[0]) {
         var f = (p - a[0]) / (b[0] - a[0] || 1);
-        var c = [0,1,2].map(function (k) { return Math.round(a[1][k] + (b[1][k] - a[1][k]) * f); });
-        var al = a[2] + (b[2] - a[2]) * f;
-        return "rgba(" + c.join(",") + "," + al.toFixed(3) + ")";
+        return {
+          glow: [0,1,2].map(function (k) { return lerp(a[1][k], b[1][k], f); }),
+          alpha: (a[2] + (b[2] - a[2]) * f).toFixed(3),
+          base: [0,1,2].map(function (k) { return lerp(a[3][k], b[3][k], f); })
+        };
       }
     }
     var last = STOPS[STOPS.length - 1];
-    return "rgba(" + last[1].join(",") + "," + last[2] + ")";
+    return { glow: last[1], alpha: last[2], base: last[3] };
   }
   var ticking = false;
   function update() {
     var max = document.documentElement.scrollHeight - window.innerHeight;
     var p = max > 0 ? Math.min(Math.max(window.scrollY / max, 0), 1) : 0;
-    layer.style.setProperty("--tint", mix(p));
+    var s = at(p);
+    layer.style.setProperty("--tint", "rgba(" + s.glow.join(",") + "," + s.alpha + ")");
+    layer.style.backgroundColor = "rgb(" + s.base.join(",") + ")";
     ticking = false;
   }
   window.addEventListener("scroll", function () {
