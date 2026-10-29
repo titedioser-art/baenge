@@ -357,23 +357,37 @@ body {
 }
 .collab-section .sec-title .cy { color: var(--cyan); }
 
-.collab-list { display: flex; flex-direction: column; gap: 1px; background: var(--border); }
+.collab-list {
+  display: grid; grid-template-columns: repeat(2, 1fr);
+  gap: 1px; background: var(--border);
+}
 .collab-item {
-  background: var(--black2); padding: 2.2rem 2.5rem;
-  display: grid; grid-template-columns: 1fr auto; gap: 2rem; align-items: center;
+  background: var(--black2); padding: 1.5rem 1.6rem;
+  display: flex; flex-direction: column; justify-content: space-between; gap: 0.8rem;
   border-left: 2px solid transparent; transition: all 0.2s;
+}
+.collab-item > div:first-child { min-width: 0; }
+.collab-item .collab-badge,
+.collab-item .collab-views { align-self: flex-end; }
+.collab-name img {
+  width: auto !important; height: 20px; max-width: 100%;
+  display: inline-block; vertical-align: middle;
+}
+@media (max-width: 760px) {
+  .collab-list { grid-template-columns: 1fr; }
+  .collab-item { padding: 1.4rem 1.3rem; }
 }
 .collab-item:hover { background: var(--black3); border-left-color: var(--gold); }
 .collab-brand-desc {
-  font-size: 0.88rem; color: rgba(238,243,244,0.95); font-weight: 400;
+  font-size: 0.8rem; color: rgba(238,243,244,0.95); font-weight: 400;
   margin-bottom: 0.3rem; letter-spacing: 0.01em;
 }
-.collab-name { font-size: 1.3rem; font-weight: 700; margin-bottom: 0.3rem; }
+.collab-name { font-size: 1.02rem; font-weight: 700; margin-bottom: 0.35rem; line-height: 1.35; }
 .collab-meta {
   font-family: 'Noto Sans KR', sans-serif; font-size: 0.58rem;
   letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase;
 }
-.collab-views { font-size: 1.8rem; font-weight: 700; color: var(--gold); text-align: right; white-space: nowrap; }
+.collab-views { font-size: 1.35rem; font-weight: 700; color: var(--gold); text-align: right; white-space: nowrap; }
 .collab-views span {
   display: block; font-family: 'Noto Sans KR', sans-serif; font-size: 0.55rem;
   letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 0.2rem;
