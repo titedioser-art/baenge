@@ -362,7 +362,8 @@ body {
 }
 .offer-section .sec-title .go { color: var(--gold); }
 
-.offer-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--border); }
+.offer-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
+@media (max-width: 980px) { .offer-grid { grid-template-columns: repeat(2, 1fr); } }
 .offer-card {
   background: var(--black3); padding: 2.8rem 2.5rem;
   border-bottom: 2px solid transparent; transition: all 0.25s;
@@ -757,34 +758,6 @@ footer {
   </div>
 </section>
 
-<!-- OFFER -->
-<section class="offer-section">
-  <div class="sec-label reveal" data-i18n="s3_label">제공 콘텐츠</div>
-  <h2 class="sec-title reveal"><span data-i18n="s3_title">함께 만들어갈 </span><span class="go" data-i18n="s3_em">것들.</span></h2>
-  <div class="offer-grid reveal">
-    <div class="offer-card">
-      <span class="offer-icon">✍️</span>
-      <div class="offer-title" data-i18n="o1_title">네이버 블로그 포스팅</div>
-      <div class="offer-desc" data-i18n="o1_desc">협업당 최소 2편의 전용 포스팅. 사진과 함께하는 장문 스토리텔링. 수개월~수년간 검색 노출 지속.</div>
-    </div>
-    <div class="offer-card">
-      <span class="offer-icon">📸</span>
-      <div class="offer-title" data-i18n="o2_title">인스타그램 노출</div>
-      <div class="offer-desc" data-i18n="o2_desc">팔로워 6,500명(@muk_baenge) 대상 고퀄리티 비주얼 콘텐츠 제작 및 업로드.</div>
-    </div>
-    <div class="offer-card">
-      <span class="offer-icon">🌏</span>
-      <div class="offer-title" data-i18n="o3_title">카테고리 무제한</div>
-      <div class="offer-desc" data-i18n="o3_desc">여행, 숙박, 다이닝, 뷰티, 라이프스타일, 제품 리뷰 등 장르 불문. 카테고리별 별도 포스팅 제작.</div>
-    </div>
-    <div class="offer-card">
-      <span class="offer-icon">📍</span>
-      <div class="offer-title" data-i18n="o4_title">장기 검색 노출</div>
-      <div class="offer-desc" data-i18n="o4_desc">SNS와 달리 네이버 블로그는 발행 후에도 수년간 검색을 통해 지속적인 트래픽과 브랜드 인지도를 만듭니다.</div>
-    </div>
-  </div>
-</section>
-
 <!-- NAVER WHY SECTION -->
 <section class="style-section" style="padding:6rem 6vw;">
   <div class="sec-label reveal">WHY NAVER BLOG MATTERS</div>
@@ -812,6 +785,30 @@ footer {
     </div>
   </div>
 </section>
+
+<!-- OFFER -->
+<section class="offer-section">
+  <div class="sec-label reveal" data-i18n="s3_label">제공 콘텐츠</div>
+  <h2 class="sec-title reveal"><span data-i18n="s3_title">함께 만들어갈 </span><span class="go" data-i18n="s3_em">것들.</span></h2>
+  <div class="offer-grid reveal">
+    <div class="offer-card">
+      <span class="offer-icon">✍️</span>
+      <div class="offer-title" data-i18n="o1_title">네이버 블로그 포스팅</div>
+      <div class="offer-desc" data-i18n="o1_desc">협업당 최소 2편의 전용 포스팅. 사진과 함께하는 장문 스토리텔링. 수개월~수년간 검색 노출 지속.</div>
+    </div>
+    <div class="offer-card">
+      <span class="offer-icon">📸</span>
+      <div class="offer-title" data-i18n="o2_title">인스타그램 노출</div>
+      <div class="offer-desc" data-i18n="o2_desc">팔로워 6,500명(@muk_baenge) 대상 고퀄리티 비주얼 콘텐츠 제작 및 업로드.</div>
+    </div>
+    <div class="offer-card">
+      <span class="offer-icon">🌏</span>
+      <div class="offer-title" data-i18n="o3_title">카테고리 무제한</div>
+      <div class="offer-desc" data-i18n="o3_desc">여행, 숙박, 다이닝, 뷰티, 라이프스타일, 제품 리뷰 등 장르 불문. 카테고리별 별도 포스팅 제작.</div>
+    </div>
+  </div>
+</section>
+
 
 <!-- COLLAB -->
 <section class="collab-section">
@@ -1033,7 +1030,7 @@ bd_cgv:"한국 No.1 멀티플렉스 영화관 · 전 세계 7개국 진출", bm_
     scroll:"스크롤하여 더 보기", stat_top:"상위", blog_link:"블로그 둘러보기", stat_rank_sub:"블로그 랭킹", stat_monthly:"월 방문자 수", stat_monthly_sub:"월간 독자", stat_visitors_sub:"누적 방문자", stat_years_sub:"콘텐츠 경력", stat_rank:"블덱스 상위 0.0<span class='digit-roll roll-label'><span class='digit-strip'><i>7</i><i>8</i><i>9</i><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></span></span>%", stat_visitors:"누적 방문자", stat_years:"블로그 운영 연수",
     impact_label:"AUTHORITY EARNED, NOT CLAIMED.",
     impact_big:"2003년부터 지금까지.<br><span class='cy'>3,126,876명</span>이<br>선택한 <span class='go'>신뢰.</span>",
-    impact_note:"22년간의 꾸준한 운영이 만든 결과입니다. 네이버 최고 등급 최적 4+, 블덱스 전체 상위 0.06% — 숫자가 아닌 시간이 증명한 영향력. 한국 소비자들은 여행, 제품, 브랜드를 결정하기 전 네이버 블로그를 먼저 찾습니다.",
+    impact_note:"22년간의 꾸준한 운영이 만든 결과입니다. 네이버 최고 등급 최적 4+, 블덱스 전체 상위 0.06% — 숫자가 아닌 시간이 증명한 영향력.",
     g1:"일반", g2:"준최1", g3:"준최2", g4:"준최3", g5:"준최4", g6:"최적1", g7:"최적2", g8:"최적3", g9:"최적4+",
     gc1_value:"최적 4+", gc2_value:"상위 0.06%", gc3_value:"41등", gc4_value:"22년",
     grade_label:"CREDIBILITY & CERTIFICATION", grade_title:"네이버 최고 등급, ", grade_title_em:"최적 4+",
@@ -1056,7 +1053,6 @@ bd_cgv:"한국 No.1 멀티플렉스 영화관 · 전 세계 7개국 진출", bm_
     o1_title:"네이버 블로그 포스팅", o1_desc:"협업당 최소 2편의 전용 포스팅. 사진과 함께하는 장문 스토리텔링. 수개월~수년간 검색 노출 지속.",
     o2_title:"인스타그램 노출", o2_desc:"팔로워 6,500명(@muk_baenge) 대상 고퀄리티 비주얼 콘텐츠 제작 및 업로드.",
     o3_title:"카테고리 무제한", o3_desc:"여행, 숙박, 다이닝, 뷰티, 라이프스타일, 제품 리뷰 등 장르 불문. 카테고리별 별도 포스팅 제작.",
-    o4_title:"장기 검색 노출", o4_desc:"SNS와 달리 네이버 블로그는 발행 후에도 수년간 검색을 통해 지속적인 트래픽과 브랜드 인지도를 만듭니다.",
     s4_label:"협업 이력", ent_label:"🏢 주요 대기업 협업", ent_name:"기타 대기업 협업", ent_desc:"한국 대표 대기업 및 글로벌 소비재 브랜드", ent_meta:"정관장 · CJ제일제당 · CJ CGV · 오리온 · HY · 올리브영 등 다수", ent_badge:"🏢 다수 협업", tour_name:"스폰서드 인플루언서 트립", s4_title:"검증된 ", s4_em:"실적.",
     bd_yeshanghai:"상하이 7년 연속 미슐랭 선정 레스토랑", bm_yeshanghai:"상하이 야경 다이닝 · 예상하이(夜上海)", bv_yeshanghai:"🍽️ 11,370뷰", bd_ritz:"리츠칼튼 상하이 플레어 루프탑 바", bm_ritz:"상하이 야경 명소 1등 스팟 · 리츠칼튼 플레어바", bv_ritz:"🍸 5,832뷰", bd_shanghai:"아시아 최고급 비즈니스 호텔 그룹", bm_shanghai:"중국 상하이 · 숙박 · 풀 콘텐츠 제작", bv_shanghai:"🏨 6,000+뷰",
     bd_renaissance:"Marriott International 럭셔리 호텔 브랜드", bm_renaissance:"중국 베이징 · 숙박 · 지속 파트너십 · <span style='color:var(--cyan);font-weight:600;'>🔍 베이징 왕푸징 호텔 네이버 검색 1위</span>", bv_renaissance:"🏨 3,000+뷰",
@@ -1069,7 +1065,7 @@ bd_cgv:"한국 No.1 멀티플렉스 영화관 · 전 세계 7개국 진출", bm_
     c1_meta:"중국 상하이 · 숙박 · 풀 콘텐츠 제작", c2_meta:"중국 베이징 · 숙박 · 지속 파트너십",
     views:"뷰", views_multi:"뷰 + 다수 협업",
     c3_name:"+ 다수 글로벌 파트너십", c3_meta:"여행·제품·라이프스타일 전 분야 협업 진행 중", c3_views:"요청 시 자료 제공",
-    hotel_title:"여행 인플루언서와 네이버 블로거는 다릅니다.", hotel_desc:"인스타그램·유튜브 콘텐츠는 며칠이면 피드에서 사라지지만, 네이버 블로그 최적 4+ 등급의 포스팅은 <strong style='color:var(--white)'>수년간 검색 상단에 노출</strong>됩니다. 한국인이 호텔을 예약하기 전 가장 먼저 찾는 것은 네이버 블로그 후기입니다. 단기 바이럴이 아닌, 장기적 브랜드 신뢰를 만듭니다.",
+    hotel_title:"여행 인플루언서와 네이버 블로거는 다릅니다.", hotel_desc:"한국인이 호텔을 예약하기 전 가장 먼저 찾는 것은 네이버 블로그 후기입니다. 단기 바이럴이 아닌, <strong style='color:var(--white)'>장기적 브랜드 신뢰</strong>를 만듭니다.",
     why_title:"한국인의 여행 결정은<br><span class='cy'>네이버에서 시작됩니다.</span>",
     why_p1_title:"검색 = 네이버", why_p1_desc:"한국인의 77%가 정보 검색 시 네이버를 가장 먼저 이용합니다. 해외여행 준비에서도 액티비티·숙소 탐색 채널 1위는 네이버입니다.",
     why_p2_title:"인스타·유튜브보다 강한 검색 노출", why_p2_desc:"SNS 콘텐츠는 며칠이면 사라지지만, 네이버 블로그 포스팅은 수년간 검색 상단에 노출됩니다. 여행 인플루언서보다 실제 검색 유입이 압도적으로 높은 이유입니다.",
@@ -1095,7 +1091,7 @@ bd_cgv:"Korea's No.1 multiplex cinema chain · operating in 7 countries", bm_cgv
     scroll:"Scroll to explore", stat_top:"Top", blog_link:"Explore My Work", stat_rank_sub:"KOREAN BLOG RANKING", stat_monthly:"Monthly Readers", stat_monthly_sub:"MONTHLY READERS", stat_visitors_sub:"CUMULATIVE VISITORS", stat_years_sub:"CONTENT EXPERIENCE", stat_rank:"Top 0.0<span class='digit-roll roll-label'><span class='digit-strip'><i>7</i><i>8</i><i>9</i><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></span></span>% in Korea", stat_visitors:"Cumulative Visitors", stat_years:"Years Active",
     impact_label:"AUTHORITY EARNED, NOT CLAIMED.",
     impact_big:"Since 2003.<br><span class='cy'>3,126,876 readers.</span><br>A record built on <span class='go'>trust.</span>",
-    impact_note:"Twenty-two years of uninterrupted publishing — not a campaign, but a standard. Naver highest blog grade, Choejeok 4+. Ranked in the top 0.06% on Blogdex. Korean consumers consult Naver blog reviews before committing to travel, dining, and product purchases. A single post here drives measurable, lasting results.",
+    impact_note:"The result of 22 years of consistent publishing. Naver's highest Choejeok 4+ grade, top 0.06% on Blogdex — authority proven by time, not by numbers alone.",
     g1:"Standard", g2:"Rising 1", g3:"Rising 2", g4:"Rising 3", g5:"Rising 4", g6:"Prime 1", g7:"Prime 2", g8:"Prime 3", g9:"Prime 4+",
     gc1_value:"Choejeok 4+<br><span style='font-size:0.7em;opacity:0.6;'>(Prime 4+)</span>", gc2_value:"Top 0.06%", gc3_value:"#41", gc4_value:"22 Yrs",
     grade_label:"CREDIBILITY & CERTIFICATION", grade_title:"Korea&#39;s Highest Blog Grade — ", grade_title_em:"Choejeok 4+ <span style='font-size:0.7em;opacity:0.6;'>(Prime 4+)</span>",
@@ -1118,7 +1114,6 @@ bd_cgv:"Korea's No.1 multiplex cinema chain · operating in 7 countries", bm_cgv
     o1_title:"Naver Blog Features", o1_desc:"A minimum of 2 dedicated posts per collaboration. Long-form editorial content with high-quality photography. Naver posts index in search and continue generating traffic for months — often years.",
     o2_title:"Instagram Coverage", o2_desc:"Visual storytelling published to 6,500 engaged followers via @muk_baenge.",
     o3_title:"No Category Restrictions", o3_desc:"Hotels, dining, beauty, lifestyle, travel, products — all categories welcome. Each subject can receive its own standalone feature.",
-    o4_title:"Sustained Search Visibility", o4_desc:"Unlike social media, Naver editorial content continues to surface organically in search long after publication — delivering ongoing brand exposure.",
     s4_label:"Selected Collaborations", ent_label:"🏢 MAJOR ENTERPRISE COLLABORATIONS", ent_name:"Major Enterprise Collaborations", ent_desc:"Korea's leading conglomerates and global consumer brands", ent_meta:"JUNGKWANJANG · CJ CheilJedang · CJ CGV · Orion · HY · Olive Young and more", ent_badge:"🏢 Multiple Collabs", tour_name:"Sponsored Influencer Trip", s4_title:"A documented ", s4_em:"track record.",
     bd_yeshanghai:"7-time Michelin-selected restaurant in Shanghai", bm_yeshanghai:"Shanghai fine dining · Yeshanghai (夜上海)", bv_yeshanghai:"🍽️ 11,370 Views", bd_ritz:"The Ritz-Carlton Shanghai Flair Rooftop Bar", bm_ritz:"#1 Shanghai night view spot · Ritz-Carlton Flair Bar", bv_ritz:"🍸 5,832 Views", bd_shanghai:"Asia-Pacific luxury business hotel group", bm_shanghai:"Shanghai, China · Hotel Stay · Full Editorial Coverage", bv_shanghai:"🏨 6,000+ Views",
     bd_renaissance:"Marriott International luxury hotel brand", bm_renaissance:"Beijing, China · Hotel Stay · Ongoing Partnership · <span style='color:var(--cyan);font-weight:600;'>🔍 #1 on Naver — Beijing Wangfujing Hotel</span>", bv_renaissance:"🏨 3,000+ Views",
@@ -1131,7 +1126,7 @@ bd_cgv:"Korea's No.1 multiplex cinema chain · operating in 7 countries", bm_cgv
     c1_meta:"Shanghai, China · Hotel Stay · Full Editorial Coverage", c2_meta:"Beijing, China · Hotel Stay · Ongoing Partnership",
     views:"Views", views_multi:"Views · Repeat Collaboration",
     c3_name:"+ Additional Global Partnerships", c3_meta:"Active collaborations across hospitality, lifestyle and consumer brands", c3_views:"Portfolio available upon request",
-    hotel_title:"Naver content outlasts influencer posts.", hotel_desc:"Social media posts disappear within days. A Naver blog feature at Choejeok 4+ grade <strong style='color:var(--white)'>remains indexed at the top of search results for years.</strong> Korean travelers search Naver before booking — not Instagram. This is the difference between short-term exposure and lasting brand authority.",
+    hotel_title:"Naver content outlasts influencer posts.", hotel_desc:"Korean travelers check Naver blog reviews before booking a hotel. Not short-term virality — <strong style='color:var(--white)'>lasting brand trust</strong>.",
     why_title:"Korean travel decisions<br><span class='cy'>begin on Naver.</span>",
     why_p1_title:"Search = Naver", why_p1_desc:"77% of Korean consumers turn to Naver first when searching for information. It is the #1 channel for researching accommodations and activities before any trip abroad.",
     why_p2_title:"Outranks influencers in search", why_p2_desc:"Social media content vanishes within days. Naver blog posts remain indexed at the top of search results for years — generating far more organic reach than travel influencers.",
@@ -1157,7 +1152,7 @@ bd_cgv:"韩国第一大连锁影院 · 业务遍及全球7个国家", bm_cgv:"�
     scroll:"向下滚动", stat_top:"前", blog_link:"探索我的内容", stat_rank_sub:"韩国博客排名", stat_monthly:"月度读者", stat_monthly_sub:"月度活跃用户", stat_visitors_sub:"累计访问量", stat_years_sub:"内容创作经验", stat_rank:"Blogdex前0.0<span class='digit-roll roll-label'><span class='digit-strip'><i>7</i><i>8</i><i>9</i><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></span></span>%", stat_visitors:"累计访问量", stat_years:"运营年数",
     impact_label:"AUTHORITY EARNED, NOT CLAIMED.",
     impact_big:"自2003年起。<br><span class='cy'>3,126,876位读者</span><br>用<span class='go'>信任</span>说话。",
-    impact_note:"22年从未间断的内容创作——不是短期营销，而是长期专业主义。Naver最高博客等级「최적 4+」，Blogdex全国排名前0.06%。韩国消费者在决定出行、选择餐厅、购买产品之前，往往会先参考Naver博客评测。一篇优质内容，带来的是长期且可持续的品牌价值。",
+    impact_note:"这是22年持续耕耘的结果。Naver最高「最适4+」等级，Blogdex全站前0.06%——用时间而非数字证明的影响力。",
     g1:"普通", g2:"准优1", g3:"准优2", g4:"准优3", g5:"准优4", g6:"优质1", g7:"优质2", g8:"优质3", g9:"优质4+",
     gc1_value:"최적 4+<br><span style='font-size:0.7em;opacity:0.6;'>(最高等级)</span>", gc2_value:"前0.06%", gc3_value:"第41名", gc4_value:"22年",
     grade_label:"公信力与专业认证", grade_title:"韩国最高博客等级 — ", grade_title_em:"최적 4+ <span style='font-size:0.7em;opacity:0.6;'>(Naver最高等级)</span>",
@@ -1180,7 +1175,6 @@ bd_cgv:"韩国第一大连锁影院 · 业务遍及全球7个国家", bm_cgv:"�
     o1_title:"Naver博客专题报道", o1_desc:"每次合作至少2篇专属内容，配以高质量摄影的深度长文。Naver内容在搜索中持续索引，流量效益可延续数月乃至数年。",
     o2_title:"Instagram内容发布", o2_desc:"精致的视觉叙事内容，发布至@muk_baenge的6,500名活跃粉丝。",
     o3_title:"合作类别不限", o3_desc:"酒店、餐饮、美妆、生活方式、旅行、消费品——所有品类均欢迎合作，每个主题均可独立成篇。",
-    o4_title:"持久的搜索曝光", o4_desc:"与社交媒体不同，Naver编辑内容在发布后仍可长期在搜索中自然呈现，为品牌带来持续稳定的曝光。",
     s4_label:"精选合作案例", ent_label:"🏢 主要企业合作", ent_name:"主要企业合作", ent_desc:"韩国代表性大企业及全球消费品牌", ent_meta:"正官庄 · CJ希杰 · CJ CGV · 好丽友 · HY · Olive Young 等", ent_badge:"🏢 多次合作", tour_name:"品牌赞助达人行", s4_title:"有据可查的 ", s4_em:"合作成绩。",
     bd_yeshanghai:"连续7年米其林入选餐厅", bm_yeshanghai:"上海夜景餐饮 · 夜上海餐厅", bv_yeshanghai:"🍽️ 11,370次浏览", bd_ritz:"上海丽思卡尔顿Flair空中酒吧", bm_ritz:"上海夜景打卡地No.1 · 丽思卡尔顿Flair酒吧", bv_ritz:"🍸 5,832次浏览", bd_shanghai:"亚太地区顶级商务酒店集团", bm_shanghai:"中国上海 · 酒店住宿 · 全方位专题报道", bv_shanghai:"🏨 6,000+ 阅读",
     bd_renaissance:"万豪国际旗下豪华酒店品牌", bm_renaissance:"中国北京 · 酒店住宿 · 持续深度合作 · <span style='color:var(--cyan);font-weight:600;'>🔍 Naver搜索「北京王府井酒店」排名第一</span>", bv_renaissance:"🏨 3,000+ 阅读",
@@ -1193,7 +1187,7 @@ bd_cgv:"韩国第一大连锁影院 · 业务遍及全球7个国家", bm_cgv:"�
     c1_meta:"中国上海 · 酒店住宿 · 全方位专题报道", c2_meta:"中国北京 · 酒店住宿 · 持续深度合作",
     views:"阅读量", views_multi:"阅读量 · 多次合作",
     c3_name:"+ 更多全球合作项目", c3_meta:"酒店、生活方式及消费品牌持续合作中", c3_views:"详细合作资料可提供",
-    hotel_title:"Naver博文的曝光，比网红帖子持久得多。", hotel_desc:"社交媒体内容数日后便淡出用户视野。而Naver「最高等级（최적4+）」等级的博客内容，<strong style='color:var(--white)'>可在搜索结果顶端持续曝光数年。</strong>韩国旅行者在预订酒店前，首先搜索的是Naver——而非Instagram。这正是短期曝光与长期品牌权威之间的本质差异。",
+    hotel_title:"Naver博文的曝光，比网红帖子持久得多。", hotel_desc:"韩国旅行者在预订酒店前，首先查看的是Naver博客评测。打造的不是短期流量，而是<strong style='color:var(--white)'>长期的品牌信任</strong>。",
     why_title:"韩国旅行者的决策之旅<br><span class='cy'>从Naver开始。</span>",
     why_p1_title:"搜索 = Naver", why_p1_desc:"77%的韩国消费者在获取信息时首先使用Naver。在出行准备阶段，Naver也是搜索住宿与活动的首选渠道。",
     why_p2_title:"搜索曝光远超博主/网红", why_p2_desc:"社交媒体内容数日后便淡出视野。Naver博客文章可在搜索结果顶端持续索引数年——自然流量远超旅行网红。",
@@ -1219,7 +1213,7 @@ bd_cgv:"韓国No.1のシネマコンプレックス · 世界7か国に展開", 
     scroll:"スクロールしてご覧ください", stat_top:"上位", blog_link:"ブログを見る", stat_rank_sub:"ブログランキング", stat_monthly:"月間訪問者数", stat_monthly_sub:"月間読者", stat_visitors_sub:"累計訪問者", stat_years_sub:"コンテンツ歴", stat_rank:"Blogdex上位0.0<span class='digit-roll roll-label'><span class='digit-strip'><i>7</i><i>8</i><i>9</i><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></span></span>%", stat_visitors:"累計訪問者", stat_years:"ブログ運営年数",
     impact_label:"AUTHORITY EARNED, NOT CLAIMED.",
     impact_big:"2003年から今日まで。<br><span class='cy'>3,126,876人</span>が<br>選んだ<span class='go'>信頼。</span>",
-    impact_note:"22年間の地道な運営が生んだ結果です。Naver最高ランクの最適4+、Blogdex全体の上位0.06% — 数字ではなく、時間が証明した影響力。韓国の消費者は旅行・商品・ブランドを決める前に、まずNaverブログを開きます。",
+    impact_note:"22年間の地道な運営が生んだ結果です。Naver最高ランクの最適4+、Blogdex全体の上位0.06% — 数字ではなく、時間が証明した影響力。",
     g1:"一般", g2:"準最1", g3:"準最2", g4:"準最3", g5:"準最4", g6:"最適1", g7:"最適2", g8:"最適3", g9:"最適4+",
     gc1_value:"最適4+", gc2_value:"上位0.06%", gc3_value:"41位", gc4_value:"22年",
     grade_label:"CREDIBILITY & CERTIFICATION", grade_title:"Naver最高ランク、", grade_title_em:"最適4+",
@@ -1242,7 +1236,6 @@ bd_cgv:"韓国No.1のシネマコンプレックス · 世界7か国に展開", 
     o1_title:"Naverブログ投稿", o1_desc:"1件のコラボにつき専用記事を2本以上。写真を交えた長文ストーリーテリング。数か月から数年にわたり検索に露出し続けます。",
     o2_title:"Instagram投稿", o2_desc:"フォロワー6,500人（@muk_baenge）に向けた高品質なビジュアルコンテンツの制作・投稿。",
     o3_title:"ジャンル不問", o3_desc:"旅行、宿泊、ダイニング、ビューティー、ライフスタイル、製品レビューまで幅広く対応。カテゴリーごとに個別の記事を制作します。",
-    o4_title:"長期的な検索露出", o4_desc:"SNSと違い、Naverブログは公開後も数年にわたって検索から安定した流入とブランド認知を生み出します。",
     s4_label:"コラボ実績", ent_label:"🏢 主要大手企業とのコラボ", ent_name:"その他の大手企業コラボ", ent_desc:"韓国を代表する大手企業およびグローバル消費財ブランド", ent_meta:"正官庄 · CJ第一製糖 · CJ CGV · オリオン · HY · オリーブヤング ほか多数", ent_badge:"🏢 多数のコラボ", tour_name:"スポンサード・インフルエンサートリップ", s4_title:"確かな", s4_em:"実績。",
     bd_yeshanghai:"7年連続ミシュラン選出の上海レストラン", bm_yeshanghai:"上海の夜景ダイニング · 夜上海", bv_yeshanghai:"🍽️ 11,370ビュー", bd_ritz:"ザ・リッツ・カールトン上海のルーフトップバー Flair", bm_ritz:"上海夜景スポット人気No.1 · リッツ・カールトン Flair Bar", bv_ritz:"🍸 5,832ビュー", bd_shanghai:"アジア有数の高級ビジネスホテルグループ", bm_shanghai:"中国 上海 · 宿泊 · フルコンテンツ制作", bv_shanghai:"🏨 6,000+ビュー",
     bd_renaissance:"マリオット・インターナショナルのラグジュアリーホテルブランド", bm_renaissance:"中国 北京 · 宿泊 · 継続パートナーシップ · <span style='color:var(--cyan);font-weight:600;'>🔍 北京王府井ホテル Naver検索1位</span>", bv_renaissance:"🏨 3,000+ビュー",
@@ -1255,7 +1248,7 @@ bd_cgv:"韓国No.1のシネマコンプレックス · 世界7か国に展開", 
     c1_meta:"中国 上海 · 宿泊 · フルコンテンツ制作", c2_meta:"中国 北京 · 宿泊 · 継続パートナーシップ",
     views:"ビュー", views_multi:"ビュー + 多数のコラボ",
     c3_name:"+ グローバルパートナーシップ多数", c3_meta:"旅行・製品・ライフスタイルの全分野でコラボ進行中", c3_views:"ご要望に応じて資料を提供",
-    hotel_title:"旅行インフルエンサーとNaverブロガーは違います。", hotel_desc:"Instagram・YouTubeの投稿は数日でフィードから消えますが、Naverブログ最適4+ランクの記事は<strong style='color:var(--white)'>数年にわたり検索上位に表示され続けます</strong>。韓国人がホテルを予約する前に最初に見るのは、Naverブログのレビューです。短期的なバズではなく、長期的なブランドの信頼をつくります。",
+    hotel_title:"旅行インフルエンサーとNaverブロガーは違います。", hotel_desc:"韓国人がホテルを予約する前に最初に見るのは、Naverブログのレビューです。短期的なバズではなく、<strong style='color:var(--white)'>長期的なブランドの信頼</strong>をつくります。",
     why_title:"韓国人の旅行の決め手は<br><span class='cy'>Naverから始まります。</span>",
     why_p1_title:"検索といえばNaver", why_p1_desc:"韓国人の77%が情報検索の際にまずNaverを利用します。海外旅行の準備でも、アクティビティや宿を探すチャネルの1位はNaverです。",
     why_p2_title:"Instagram・YouTubeより強い検索露出", why_p2_desc:"SNSの投稿は数日で埋もれますが、Naverブログの記事は数年にわたり検索上位に残ります。旅行インフルエンサーよりも実際の検索流入が圧倒的に多い理由です。",
