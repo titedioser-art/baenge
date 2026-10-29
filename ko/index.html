@@ -597,7 +597,7 @@ footer {
   <div class="hero-main" style="display:flex;gap:2rem;align-items:flex-start;">
     <div style="flex:1;min-width:0;">
     <div class="hero-tag" data-i18n="eyebrow">글로벌 여행 · 트렌드 · 라이프스타일 크리에이터</div>
-    <div style="font-size:clamp(1.1rem,2.5vw,1.6rem);font-weight:300;color:rgba(238,243,244,0.55);letter-spacing:0.12em;margin-bottom:0.3rem;opacity:0;animation:fadeUp 0.7s ease forwards 0.3s;font-family:'Inter',sans-serif;">Hello, I'm</div>
+    <div style="font-size:clamp(1.1rem,2.5vw,1.6rem);font-weight:300;color:rgba(238,243,244,0.55);letter-spacing:0.12em;margin-bottom:0.3rem;opacity:0;animation:fadeUp 0.7s ease forwards 0.3s;font-family:'Inter',sans-serif;" data-i18n="greeting">안녕하세요, 저는</div>
     <h1 class="hero-name" style="font-family:'Cormorant Garamond',Georgia,serif;">Bane<span class="cy">gE</span></h1>
     <p class="hero-sub" data-i18n="hero_sub"><span style='font-size:1.4em;font-weight:700;color:var(--cyan)'>상위 0.06%</span> 네이버 블로거.<br><br>네이버 최고 등급 <strong>최적 4+</strong>를 22년간 안정적으로 유지하고 있습니다.<br><strong>매일 3개 이상의 포스팅</strong>으로 수천 개의 콘텐츠를 축적해왔습니다.<br>자극적인 트렌드에 의존하지 않고, 실제 경험과 데이터로 <strong>꾸준히 높은 방문자 수</strong>를 유지합니다.</p>
     </div>
@@ -760,7 +760,7 @@ footer {
 
 <!-- NAVER WHY SECTION -->
 <section class="style-section" style="padding:6rem 6vw;">
-  <div class="sec-label reveal">WHY NAVER BLOG MATTERS</div>
+  <div class="sec-label reveal" data-i18n="why_label">왜 네이버 블로그인가</div>
   <h2 class="sec-title reveal" style="font-size:clamp(1.8rem,4vw,3.2rem);" data-i18n="why_title">한국인의 여행 결정은<br><span class="cy">네이버에서 시작됩니다.</span></h2>
   <div class="pillars reveal" style="margin-top:2rem;">
     <div class="pillar">
@@ -990,32 +990,34 @@ footer {
   <p class="contact-sub reveal" data-i18n="contact_sub">여행, 라이프스타일, 제품, 브랜드 — 분야를 가리지 않습니다. 제안 주시면 빠르게 회신드리겠습니다.</p>
   <div class="contact-links reveal">
     <a class="contact-link" href="https://blog.naver.com/bbh4313" target="_blank">
-      <div><div class="contact-link-label">Naver Blog</div><div class="contact-link-value">blog.naver.com/bbh4313</div></div>
+      <div><div class="contact-link-label" data-i18n="cl_blog">네이버 블로그</div><div class="contact-link-value">blog.naver.com/bbh4313</div></div>
       <div class="contact-arrow">→</div>
     </a>
     <a class="contact-link" href="https://instagram.com/muk_baenge" target="_blank">
-      <div><div class="contact-link-label">Instagram</div><div class="contact-link-value">@muk_baenge</div></div>
+      <div><div class="contact-link-label" data-i18n="cl_insta">인스타그램</div><div class="contact-link-value">@muk_baenge</div></div>
       <div class="contact-arrow">→</div>
     </a>
     <a class="contact-link" href="mailto:business@baenge.com">
-      <div><div class="contact-link-label">Business Email</div><div class="contact-link-value">business@baenge.com</div></div>
+      <div><div class="contact-link-label" data-i18n="cl_biz">비즈니스 이메일</div><div class="contact-link-value">business@baenge.com</div></div>
       <div class="contact-arrow">→</div>
     </a>
     <a class="contact-link" href="mailto:bbh4313@naver.com">
-      <div><div class="contact-link-label">Naver Email</div><div class="contact-link-value">bbh4313@naver.com</div></div>
+      <div><div class="contact-link-label" data-i18n="cl_mail">네이버 이메일</div><div class="contact-link-value">bbh4313@naver.com</div></div>
       <div class="contact-arrow">→</div>
     </a>
   </div>
 </section>
 
 <footer>
-  <span>BanegE · Global Travel & Lifestyle Creator · Since 2003</span>
+  <span data-i18n="foot_tag">BanegE · 글로벌 여행 · 라이프스타일 크리에이터 · Since 2003</span>
   <span>Naver 최적 4+ · 블덱스 상위 0.06% · 누적 방문 3,126,876</span>
 </footer>
 
 <script>
 const i18n = {
   ko: {
+cl_blog:"네이버 블로그", cl_insta:"인스타그램", cl_biz:"비즈니스 이메일", cl_mail:"네이버 이메일", foot_tag:"BanegE · 글로벌 여행 · 라이프스타일 크리에이터 · Since 2003", why_label:"왜 네이버 블로그인가",
+greeting:"안녕하세요, 저는",
 bd_mira:"홍콩 침사추이 대표 디자인 럭셔리 호텔 · 디자인호텔스 가입", bm_mira:"홍콩 침사추이 · 숙박 · 콘텐츠 제작", bv_mira:"🏨 숙박 협업",
 bd_nansha:"메리어트 인터내셔널 플래그십 브랜드 · 전 세계 600개 이상 운영", bm_nansha:"중국 광저우 난샤 · 숙박 · 콘텐츠 제작", bv_nansha:"🏨 숙박 협업",
 bd_philips:"네덜란드 글로벌 헬스테크 기업 · 전기면도기 세계 점유율 1위", bm_philips:"필립스 쉐이버 · 공식 앰버서더 2기 선정 · 현재 활동 중", bv_philips:"공식 앰버서더 2기",
@@ -1077,6 +1079,8 @@ bd_cgv:"한국 No.1 멀티플렉스 영화관 · 전 세계 7개국 진출", bm_
     link_email:"business@baenge.com"
   },
   en: {
+cl_blog:"Naver Blog", cl_insta:"Instagram", cl_biz:"Business Email", cl_mail:"Naver Email", foot_tag:"BanegE · Global Travel &amp; Lifestyle Creator · Since 2003", why_label:"WHY NAVER BLOG MATTERS",
+greeting:"Hello, I'm",
 bd_mira:"Design-led luxury hotel in Tsim Sha Tsui · member of Design Hotels", bm_mira:"Tsim Sha Tsui, Hong Kong · Hotel Stay · Editorial Coverage", bv_mira:"🏨 Hotel Stay",
 bd_nansha:"Marriott International flagship brand · 600+ hotels worldwide", bm_nansha:"Nansha, Guangzhou, China · Hotel Stay · Editorial Coverage", bv_nansha:"🏨 Hotel Stay",
 bd_philips:"Dutch global health technology company · world's No.1 in electric shavers", bm_philips:"Philips Shaver · selected for the 2nd Official Ambassador class · currently active", bv_philips:"Official Ambassador, Class 2",
@@ -1138,6 +1142,8 @@ bd_cgv:"Korea's No.1 multiplex cinema chain · operating in 7 countries", bm_cgv
     link_email:"business@baenge.com"
   },
   zh: {
+cl_blog:"Naver博客", cl_insta:"Instagram", cl_biz:"商务邮箱", cl_mail:"Naver邮箱", foot_tag:"BanegE · 全球旅行与生活方式创作者 · Since 2003", why_label:"为什么是Naver博客",
+greeting:"你好，我是",
 bd_mira:"香港尖沙咀设计型奢华酒店 · Design Hotels成员", bm_mira:"中国香港尖沙咀 · 住宿 · 内容创作", bv_mira:"🏨 住宿合作",
 bd_nansha:"万豪国际旗舰品牌 · 全球运营超600家酒店", bm_nansha:"中国广州南沙 · 住宿 · 内容创作", bv_nansha:"🏨 住宿合作",
 bd_philips:"荷兰全球健康科技企业 · 电动剃须刀全球市占率第一", bm_philips:"飞利浦剃须刀 · 第二期官方品牌大使 · 活动中", bv_philips:"官方品牌大使 第二期",
@@ -1199,6 +1205,8 @@ bd_cgv:"韩国第一大连锁影院 · 业务遍及全球7个国家", bm_cgv:"�
     link_email:"business@baenge.com"
   },
   ja: {
+cl_blog:"Naverブログ", cl_insta:"Instagram", cl_biz:"ビジネス用メール", cl_mail:"Naverメール", foot_tag:"BanegE · グローバル旅行・ライフスタイルクリエイター · Since 2003", why_label:"なぜNaverブログなのか",
+greeting:"はじめまして、",
 bd_mira:"尖沙咀を代表するデザイン系ラグジュアリーホテル · Design Hotels加盟", bm_mira:"香港 尖沙咀 · 宿泊 · コンテンツ制作", bv_mira:"🏨 宿泊コラボ",
 bd_nansha:"マリオット・インターナショナルの旗艦ブランド · 世界600軒以上を展開", bm_nansha:"中国 広州 南沙 · 宿泊 · コンテンツ制作", bv_nansha:"🏨 宿泊コラボ",
 bd_philips:"オランダ発のグローバル・ヘルステック企業 · 電気シェーバー世界シェア1位", bm_philips:"フィリップス シェーバー · 公式アンバサダー2期に選出 · 活動中", bv_philips:"公式アンバサダー2期",
