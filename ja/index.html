@@ -135,6 +135,28 @@ body > section, body > footer, body > .hero { position: relative; z-index: 1; }
   color: var(--cyan); border: 1px solid var(--cyan2);
   padding: 0.4rem 1.1rem; border-radius: 50px;
   text-align: center; white-space: nowrap;
+  position: relative; overflow: hidden;
+  animation: badgeGlow 3.6s ease-in-out infinite;
+}
+/* 지나가는 빛 */
+.badge::after {
+  content: ""; position: absolute; top: 0; left: -120%;
+  width: 60%; height: 100%; pointer-events: none;
+  background: linear-gradient(100deg, transparent, rgba(0,229,200,0.45), transparent);
+  animation: badgeSheen 3.6s ease-in-out infinite;
+}
+@keyframes badgeGlow {
+  0%, 100% { box-shadow: 0 0 0 rgba(0,229,200,0); border-color: var(--cyan2); }
+  50%      { box-shadow: 0 0 14px rgba(0,229,200,0.35); border-color: var(--cyan); }
+}
+@keyframes badgeSheen {
+  0%   { left: -120%; }
+  55%  { left: 160%; }
+  100% { left: 160%; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .badge { animation: none; }
+  .badge::after { display: none; }
 }
 
 .hero-main { flex: 1; display: flex; flex-direction: column; justify-content: center; padding: 3rem 0; }
@@ -619,7 +641,7 @@ footer {
 <section class="hero">
   <div class="hero-top">
     <div class="logo">BanegE · Media Kit 2026</div>
-    <div class="badge" data-i18n="badge">협업 문의 환영</div>
+    <div class="badge" data-i18n="badge">협업 문의</div>
   </div>
   <div class="hero-main" style="display:flex;gap:2rem;align-items:flex-start;">
     <div style="flex:1;min-width:0;">
@@ -1055,7 +1077,7 @@ bd_hilton:"힐튼 그룹 럭셔리 비즈니스 호텔 · 전 세계 140개국 �
 bd_crowne:"IHG 그룹 프리미엄 호텔 브랜드 · 전 세계 100개국 진출", bm_crowne:"중국 선전 푸톈 · 숙박 · 콘텐츠 제작", bv_crowne:"숙박 협업",
 rank_up:"<span class='arrow'>▲</span> 0.07% → 0.06% 상승",
 bd_cgv:"한국 No.1 멀티플렉스 영화관 · 전 세계 7개국 진출", bm_cgv:"영화·엔터테인먼트 · 공식 협업", bv_cgv:"공식 협업",
-    badge:"협업 환영", eyebrow:"글로벌 여행 · 트렌드 · 라이프스타일 크리에이터",
+    badge:"협업 문의", eyebrow:"글로벌 여행 · 트렌드 · 라이프스타일 크리에이터",
     hero_sub:"<span style='font-size:1.4em;font-weight:700;color:var(--cyan)'>상위 0.06%</span> 네이버 블로거.<br><br>네이버 최고 등급 <strong>최적 4+</strong>를 22년간 안정적으로 유지하고 있습니다.<br><strong>매일 3개 이상의 포스팅</strong>으로 수천 개의 콘텐츠를 축적해왔습니다.<br>트렌드에 기대지 않고 <strong>실제 경험과 데이터</strong>로 방문자 수를 유지합니다.",
     scroll:"스크롤하여 더 보기", stat_top:"상위", blog_link:"블로그 둘러보기", stat_rank_sub:"블로그 랭킹", stat_monthly:"월 방문자 수", stat_monthly_sub:"월간 독자", stat_visitors_sub:"누적 방문자", stat_years_sub:"콘텐츠 경력", stat_rank:"블덱스 상위 0.0<span class='digit-roll roll-label'><span class='digit-strip'><i>7</i><i>8</i><i>9</i><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></span></span>%", stat_visitors:"누적 방문자", stat_years:"블로그 운영 연수",
     impact_label:"AUTHORITY EARNED, NOT CLAIMED.",
@@ -1183,7 +1205,7 @@ bd_hilton:"希尔顿集团豪华商务酒店 · 业务遍及全球140多个国�
 bd_crowne:"IHG洲际集团高端酒店品牌 · 业务遍及全球100多个国家", bm_crowne:"中国深圳福田 · 住宿 · 内容创作", bv_crowne:"住宿合作",
 rank_up:"<span class='arrow'>▲</span> 较0.07%上升",
 bd_cgv:"韩国第一大连锁影院 · 业务遍及全球7个国家", bm_cgv:"电影与娱乐 · 官方合作", bv_cgv:"官方合作",
-    badge:"欢迎合作", eyebrow:"全球旅行 · 潮流趋势 · 生活方式",
+    badge:"合作咨询", eyebrow:"全球旅行 · 潮流趋势 · 生活方式",
     hero_sub:"<span style='font-size:1.4em;font-weight:700;color:var(--cyan)'>前0.06%</span> — 韩国Naver平台。<br><br>不仅是旅行博主，<br>更是长期积累信任感的内容创作者。<br>连续22年稳居Naver最高博客等级 <strong>「최적 4+」</strong>。<br>坚持<strong>每日发布3篇以上原创内容</strong>，积累数千篇真实评测。<br>不追热点、不依赖流量 — 以真实体验与数据驱动<strong>持续稳定的高访问量</strong>。",
     scroll:"向下滚动", stat_top:"前", blog_link:"探索我的内容", stat_rank_sub:"韩国博客排名", stat_monthly:"月度读者", stat_monthly_sub:"月度活跃用户", stat_visitors_sub:"累计访问量", stat_years_sub:"内容创作经验", stat_rank:"Blogdex前0.0<span class='digit-roll roll-label'><span class='digit-strip'><i>7</i><i>8</i><i>9</i><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></span></span>%", stat_visitors:"累计访问量", stat_years:"运营年数",
     impact_label:"AUTHORITY EARNED, NOT CLAIMED.",
@@ -1247,7 +1269,7 @@ bd_hilton:"ヒルトン・グループのラグジュアリービジネスホテ
 bd_crowne:"IHGグループのプレミアムホテルブランド · 世界100か国以上に展開", bm_crowne:"中国 深圳 福田 · 宿泊 · コンテンツ制作", bv_crowne:"宿泊コラボ",
 rank_up:"<span class='arrow'>▲</span> 0.07%から0.06%に上昇",
 bd_cgv:"韓国No.1のシネマコンプレックス · 世界7か国に展開", bm_cgv:"映画・エンターテインメント · 公式コラボ", bv_cgv:"公式コラボ",
-    badge:"コラボ歓迎", eyebrow:"グローバル旅行 · トレンド · ライフスタイル クリエイター",
+    badge:"コラボのご相談", eyebrow:"グローバル旅行 · トレンド · ライフスタイル クリエイター",
     hero_sub:"<span style='font-size:1.4em;font-weight:700;color:var(--cyan)'>上位0.06%</span>のNaverブロガー。<br><br>Naver最高ランクの<strong>最適4+</strong>を22年間、安定して維持しています。<br><strong>毎日3本以上の投稿</strong>を重ね、数千本のコンテンツを蓄積してきました。<br>刺激的なトレンドに頼らず、実体験とデータで<strong>高い訪問者数を継続</strong>しています。",
     scroll:"スクロールしてご覧ください", stat_top:"上位", blog_link:"ブログを見る", stat_rank_sub:"ブログランキング", stat_monthly:"月間訪問者数", stat_monthly_sub:"月間読者", stat_visitors_sub:"累計訪問者", stat_years_sub:"コンテンツ歴", stat_rank:"Blogdex上位0.0<span class='digit-roll roll-label'><span class='digit-strip'><i>7</i><i>8</i><i>9</i><i>0</i><i>1</i><i>2</i><i>3</i><i>4</i><i>5</i><i>6</i></span></span>%", stat_visitors:"累計訪問者", stat_years:"ブログ運営年数",
     impact_label:"AUTHORITY EARNED, NOT CLAIMED.",
