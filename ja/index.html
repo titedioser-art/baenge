@@ -1492,10 +1492,16 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
   };
   var ORDER = ["all","hotel","dining","spa","brand","amb"];
 
-  document.querySelectorAll(".collab-list").forEach(function (list) {
-    var items = [].slice.call(list.querySelectorAll(".collab-item"));
+  (function () {
+    var lists = [].slice.call(document.querySelectorAll(".collab-list"));
+    if (!lists.length) return;
+    var items = [];
+    lists.forEach(function (l) {
+      l.classList.add("cf-src");
+      items = items.concat([].slice.call(l.querySelectorAll(".collab-item")));
+    });
     if (!items.length) return;
-    list.classList.add("cf-src");
+    var list = lists[0];
 
     var wrap = document.createElement("div");
     wrap.className = "cf-wrap";
@@ -1595,7 +1601,7 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
       });
     }, { threshold: 0.15 });
     io.observe(grid);
-  });
+  })();
 
   window.cfLang = function (lang) {
     var L = LABEL[lang] || LABEL.ko;
@@ -1606,11 +1612,13 @@ document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
     document.querySelectorAll(".cf-wrap").forEach(function (w) {
       var sel = w.querySelector(".cf-card.sel");
       var box = w.querySelector(".cf-box");
-      if (sel && box) {
-        var list = w.parentNode.querySelector(".collab-list");
-        var it = list.querySelectorAll(".collab-item")[+sel.dataset.i];
-        if (it) box.innerHTML = it.innerHTML;
-      }
+      if (!sel || !box) return;
+      var all = [];
+      document.querySelectorAll(".collab-list").forEach(function (l) {
+        all = all.concat([].slice.call(l.querySelectorAll(".collab-item")));
+      });
+      var it = all[+sel.dataset.i];
+      if (it) box.innerHTML = it.innerHTML;
     });
   };
 })();
